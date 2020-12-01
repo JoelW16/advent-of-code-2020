@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace aoc2020.elfaccounting
 {
@@ -8,6 +11,11 @@ namespace aoc2020.elfaccounting
         public ExpenseReport(List<int> expenses)
         {
             _expenses = expenses;
+        }
+        
+        public ExpenseReport(string path)
+        {
+            _expenses = GetExpenseFromFile(path);
         }
 
         public int FindProductFor(int year) {
@@ -20,6 +28,11 @@ namespace aoc2020.elfaccounting
                 }
             }
             return 0;
+        }
+
+        private static List<int> GetExpenseFromFile(string path)
+        {
+            return File.ReadLines(path).Select(expense => Convert.ToInt32(expense)).ToList();
         }
     }
 }

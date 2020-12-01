@@ -15,5 +15,11 @@
   <ItemGroup>
     <ProjectReference Include="..\aoc2020.elfaccounting\aoc2020.elfaccounting.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="TestData\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>
