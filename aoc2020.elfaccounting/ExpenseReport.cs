@@ -18,13 +18,20 @@ namespace aoc2020.elfaccounting
             _expenses = GetExpenseFromFile(path);
         }
 
-        public int FindProductFor(int year) {
+        public int FindProductFor(int year, int numberOfExpenses = 2) {
+            if (numberOfExpenses <=1) return 0;            
             foreach (var expense in _expenses)
             {
                 int yearDifference = year - expense;
                 bool expensesContainDiff = _expenses.Contains(yearDifference);
-                if(expensesContainDiff) {
+                if(expensesContainDiff && numberOfExpenses == 2) {
                     return expense * yearDifference;
+                }
+                else {
+                   var product = FindProductFor(yearDifference, numberOfExpenses-1);
+                   if (product != 0) {
+                       return expense * product;
+                   }
                 }
             }
             return 0;
