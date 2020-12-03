@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Linq;
 
-namespace aoc2020.tobogganing
+namespace aoc2020.tobogganing.RentalShop
 {
     public class RentalShopPassword
     {
@@ -12,7 +10,6 @@ namespace aoc2020.tobogganing
         public RentalShopPassword(string policyAndPassword)
         {
             Policy = ExtractPolicy(policyAndPassword);
-            
             var password = ExtractPassword(policyAndPassword);
             IsValid = Policy.Accepts(password);
         }

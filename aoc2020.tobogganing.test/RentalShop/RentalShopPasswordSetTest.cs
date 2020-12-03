@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using aoc2020.tobogganing.RentalShop;
 using NUnit.Framework;
 
-namespace aoc2020.tobogganing.test
+namespace aoc2020.tobogganing.test.RentalShop
 {
     public class RentalShopPasswordSetTest
     {
@@ -25,12 +26,12 @@ namespace aoc2020.tobogganing.test
         [Test]
         public void HasXValidPasswordsInFile()
         {
-            var path = Path.Combine("TestData", "input.txt");
+            var path = Path.Combine("RentalShop", "TestData", "input.txt");
             var rentalShopPasswordSet = new RentalShopPasswordSet(path);
             var result = rentalShopPasswordSet.GetValidPasswordCount();
             
             Console.WriteLine(result);
-            Assert.That(result, Is.EqualTo(502));
+            Assert.That(result, Is.EqualTo(294));
         }
     }
 }

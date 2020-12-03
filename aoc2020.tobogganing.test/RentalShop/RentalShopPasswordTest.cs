@@ -1,6 +1,7 @@
+using aoc2020.tobogganing.RentalShop;
 using NUnit.Framework;
 
-namespace aoc2020.tobogganing.test
+namespace aoc2020.tobogganing.test.RentalShop
 {
     public class RentalShopPasswordTest
     {

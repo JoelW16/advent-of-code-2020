@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace aoc2020.tobogganing
+namespace aoc2020.tobogganing.RentalShop
 {
     public class RentalShopPasswordSet
     {
