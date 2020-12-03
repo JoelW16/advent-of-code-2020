@@ -31,32 +31,31 @@ namespace aoc2020.tobogganing
 
     internal class RentalShopPasswordPolicy
     {
-        private int MaxOccurrences { get; }
-        private int MinOccurrences { get; }
+        private int[] CharacterIndices { get; }
         private char Character { get; }
 
         public RentalShopPasswordPolicy(string policy)
         {
             Character = GetCharacter(policy);
-            MaxOccurrences = GetOccurrences(policy, false);
-            MinOccurrences = GetOccurrences(policy, true);
+            CharacterIndices = GetIndices(policy);
         }
 
         public bool Accepts(string password)
         {
-            var characterOccurrences = password.Count(c => c.Equals(Character));
-            return characterOccurrences >= MinOccurrences && characterOccurrences <= MaxOccurrences;
+            var firstIndex = CharacterIndices[0] - 1;
+            var secondIndex = CharacterIndices[1] - 1;
+            return password[firstIndex].Equals(Character) ^ password[secondIndex].Equals(Character);
         }
         
         private static char GetCharacter(string policy)
         {
             return char.Parse(policy.Split(' ')[1]);
         }
-        
-        private static int GetOccurrences(string policy, bool isMin)
+
+        private static int[] GetIndices(string policy)
         {
             var range = policy.Split(' ')[0];
-            return int.Parse(range.Split('-')[isMin ? 0 : 1]);
+            return range.Split('-').Select(i => int.Parse(i)).ToArray();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace aoc2020.tobogganing.test
             var rentalShopPasswordSet = new RentalShopPasswordSet(policiesAndPasswords);
             var result = rentalShopPasswordSet.GetValidPasswordCount();
             
-            Assert.That(result, Is.EqualTo(2));
+            Assert.That(result, Is.EqualTo(1));
         }
         
         [Test]
@@ -30,7 +30,7 @@ namespace aoc2020.tobogganing.test
             var result = rentalShopPasswordSet.GetValidPasswordCount();
             
             Console.WriteLine(result);
-            Assert.That(result, Is.EqualTo(465));
+            Assert.That(result, Is.EqualTo(502));
         }
     }
 }
