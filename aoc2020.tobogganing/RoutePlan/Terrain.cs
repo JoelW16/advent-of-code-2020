@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace aoc2020.tobogganing.RoutePlan
 {
@@ -27,6 +28,20 @@ namespace aoc2020.tobogganing.RoutePlan
                 latitude = TraverseLatitude(latitude, course.Right);
             }
             return encounteredTrees;
+        }
+
+        public int ProductOfEncounteredTrees(List<Course> courses)
+        {
+            if (courses.Count == 0) {
+                return 0;
+            }
+            var ProductOfEncounteredTrees = 1;
+
+            foreach (var course in courses)
+            {
+                ProductOfEncounteredTrees *= EncounteredTreesCount(course);
+            }
+            return ProductOfEncounteredTrees;
         }
 
         private int TraverseLatitude(int latitude, int traversal)
