@@ -20,6 +20,9 @@
       <Content Include="RentalShop\TestData\*">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+        <Content Include="RoutePlan\TestData\*">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>
