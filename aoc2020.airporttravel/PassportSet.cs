@@ -26,7 +26,7 @@ namespace aoc2020.airporttravel
         private static Passport[] GetPassportsFromFile(string path)
         {
             var  rawPassortData = File.ReadAllText(path);
-            return Regex.Split(rawPassortData, "\r\n\r").Select(p => new Passport(p)).ToArray();
+            return Regex.Split(rawPassortData, "\n\n|\r\n\r").Select(p => new Passport(p)).ToArray();
         }
     }
 }
